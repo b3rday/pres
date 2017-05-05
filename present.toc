@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{About me}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Place and city birth}{3}{0}{1}
+\beamer@sectionintoc {2}{Academic training}{4}{0}{2}
+\beamer@sectionintoc {3}{Professional Projects and Experiences}{8}{0}{3}
+\beamer@sectionintoc {4}{My objective in the future}{13}{0}{4}

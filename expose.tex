@@ -1,0 +1,641 @@
+%\documentclass[slidestop,usepdftitle=false]{beamer}
+
+%---------------------------------------------------------------------------------
+%\documentclass{beamer}
+%\documentclass[ignorenonframetext,red]{beamer} entre ces deux on joue sur la couleur
+% dans ce fichier si on met ce dernier au lieu que documentclass beamer il ya aura des erreurs
+% ? et pourtant ça marchait avant dans un autre fichiers peut
+%------------------------------------------------------------------------------------
+
+\documentclass[smaller,brown]{beamer}% smaller pour avoir plus petit
+%\documentclass[handout,xcolor=pdftex,dvipsnames,table]{beamer}% pour imprimer
+%\pagestyle{myheadings}
+%----------------------------------------
+
+\usepackage[accumulated]{beamerseminar}% pour faire (the picture)dessiner
+
+\usepackage[french]{babel}
+\usepackage[latin1]{inputenc}
+
+%-----------------------------------------------
+\usepackage{graphicx}
+
+%---------------------------------------------------
+%\usepackage[T1]{fontenc}
+\usepackage{array}% % pour afficher colonne par colonne ou ligne par ligne
+
+
+\setbeamercovered{transparent}% dans ma machine perso ne marche pas dans les autres si
+
+\beamertemplateshadingbackground{red!10}{blue!10}
+
+\usepackage{beamerthemeshadow}
+
+\usepackage{beamertexpower}
+%\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb,amsfonts}
+
+
+%----------------------------------------------------------------------
+
+\usepackage{multimedia}% pour inserer les mpg et les avi
+
+
+%-----------------------------------------------------------------------------
+
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{vertbleu}{rgb}{0.2,0.7,0.7}
+\definecolor{vertoubleu}{rgb}{0.0,1.0,1.0}
+
+
+%\newcommand{\blue}{\color{blue}}
+%\newcommand{\red}{\color{red}}
+%\newcommand{\green}{\color{green}}
+
+\beamertemplatetransparentcovereddynamic
+\newcommand{\Lang}[1]{\operatorname{\text{\textsc{#1}}}}
+\newcommand{\Class}[1]{\operatorname{\mathchoice
+  {\text{\sf \small #1}}
+  {\text{\sf \small #1}}
+  {\text{\sf #1}}
+  {\text{\sf #1}}}}
+
+%\newcommand{\R}{I\!\!R}
+%\newcommand{\N}{I\!\!N}
+\newcommand{\NumSAT}      {\text{\small\#SAT}}
+\newcommand{\NumA}        {\#_{\!A}}
+\newcommand{\barA}        {\,\bar{\!A}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Set}[1]{\{#1\}}
+
+\newtheorem{proposition}{Proposition}[section]
+%\renewtheorem{definition}[proposition]{Définition}
+\newtheorem{theo}[proposition]{}
+%\newtheorem{definition}[proposition]{Définition}
+\newtheorem{property}[proposition]{Propriété}
+%\renewtheorem{corollary}[proposition]{Corollaire}
+%\renewtheorem{lemma}[proposition]{Lemme}
+%\newtheorem{example}[proposition]{Exemple}
+\newtheorem{result}[proposition]{Résultat}
+\newtheorem{remark}[proposition]{Remarque}
+\newtheorem{demons}[proposition]{Démonstration}
+\newtheorem{propo}[proposition]{Proposition}
+\newtheorem{defin}[proposition]{Définition}
+
+%-------------------------------------------------------------------
+% j'enleve cette partie cr je ne sais son utilité et en plus j'en ai pas de "`pgf"'??????
+
+\pgfdeclaremask{tu}{beamer-tu-logo-mask}
+\pgfdeclaremask{computer}{beamer-computer-mask}
+\pgfdeclareimage[interpolate=true,mask=computer,height=2cm]{computerimage}{beamer-computer}
+\pgfdeclareimage[interpolate=true,mask=computer,height=2cm]{computerworkingimage}{beamer-computerred}
+
+
+%------------------------------------------------logo du labo
+%\logo{\includegraphics[height=0.7cm,width=0.7cm]{lts.jpg}}
+%---------------------------------------------------------comment on fait  pour qu'on puisse le mettre ou on veut
+%là par défaut il est en bas a droite
+%
+
+
+%
+\title{Presentation}
+
+\author{Youssef BERDAI \\ \code{(E-mail: joseph.berdai@gmail.com)}}
+
+\institute[Faculté des Sciences -Luminy]{\large Université d'Aix-Marseille\\
+{\textbf{\blue Faculté des Sciences -Luminy}} \\   \mbox{~}\\
+%\vspace{1cm}
+{English course}}\date{\mbox{\textbf{\blue  09 Dec 2015}} }
+
+% def bastien
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\d{\delta}
+\def\dab{\delta_{\alpha\beta}}
+\def\div{\rm div}
+\def\dR{\Delta_r}
+\def\dT{\Delta_t}
+\def\dr{\delta_r}
+\def\dt{\delta_t}
+\def\grad{\rm grad}
+\def\r{ {\bf r}}
+\def\u{ {\mathbf u}}
+\def\j{ {\mathbf j}}
+\def\v{ {\mathbf v}}
+\def\V{ {\bf V}}
+\def\N{ {\bf N}}
+\def\tstep{\dt}
+\def\duxdy{\frac{{\partial}u_x}{{\partial}y}}
+\def\duydx{\frac{{\partial}u_y}{{\partial}x}}
+\def\lm{\lambda}
+\def\err{\Delta}
+% def moi
+\def\vv{\vec v}
+\def\vc{\vec c}
+\def\vu{\vec u}
+\def\vr{\vec r}
+\def\vi{\vec v_i}
+\def\vci{\vec c_i}
+
+%----------------------------------------------------------------------------------% pour mettre la table des matières
+%                 % au début de chaque section
+%\AtBeginSection[]
+%{ \begin{frame}<beamer>
+%\frametitle{Outline}
+%\tableofcontents[currentsection]
+%\end{frame} }
+%-------------------------------------------------------------------------------
+
+
+\input{psfig.sty}
+\begin{document}
+
+  \frame{\titlepage}
+    {\footnotesize
+    %\section<presentation>*{Plan de l'exposé}
+%
+      %\frame {
+      %\frametitle{Plan de l'exposé..........}
+     %\tableofcontents%[part=1,pausesections]
+%     \tableofcontents[part=1,pausesections]
+      %}
+     }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\section{Introduction }
+
+\subsection{About me}
+
+  \begin{frame}
+   \frametitle{Youssef BERDAI}%{ \bf } \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\small  {\bf Né le 05 Mars 1985 à Casablanca/Morocco} }\\
+{\bf Master 2R 'Modélisation et Systèmes'. Université HASSAN II de Casablanca.}\\
+\textcolor{blue}{mention Bien, 3ème de promotion à l'écrit} \\
+\mbox{~}\\
+{\bf Internship de fin d'études 'Modélisation et Simulation d'un Système Etalable par Automates Cellulaires :
+Application en Océanographie'. Laboratoire IMAGES, financement by System theory group. }\\
+\mbox{~}\\
+
+{\textbf{\blue   Formation:}} \\
+
+{\small
+\begin{description}
+\item[2009/2010 :] {\bf  Master 1 Modélisation et Systèmes},  mention Bien, Université HASSAN II de Casablanca.
+\item[2008/2009 :] {\bf Licence} Mathématique et informatique,  Université HASSAN II de Casablanca.
+\end{description}}
+\end{frame}
+
+\begin{frame}
+   \frametitle{Youssef Berdai}
+{\textbf{\blue   Stages/Projets} }\\
+
+{\footnotesize
+\begin{description}
+\item[Juin 2009:] Projet de fin d'études de Licence. 
+ Etude de la théorie locale des surfaces 3D en géométrie différentielle.
+%
+\item[2009-2010:] Stage de 2 mois en pédagogie mathématique à l'école primaire Jeanne d'Arc - Casablanca.
+%
+\item[2010 :] Participation à la rencontre internationale de modélisation et méthodes mathématiques au laboratoire M.A.C.S, Casablanca.
+%
+\end{description}}
+
+{\textbf{\blue   Expériences professionnelles:} }\\
+
+{\footnotesize
+\begin{description}
+\item[2007-2008:] Technicien à Hotline service technique pour Free F.A.I,  8 mois d'expériences en traitement des e-mails, Etude et suivi de câblage des lignes, Installation modem et Résolution des problèmes liés aux Réseaux et Architecture des DSLAM.
+\end{description}}
+
+{\textbf{\blue  Compétences en informatique} }\\
+
+{\footnotesize
+\begin{itemize}
+\item Programmation C/C++, Java, Matlab v.2010 (Modélisation par éléments finis, EDP),
+Scilab (schémas numériques), Netbeans, Mathematica, SPSS, Maple, R.
+%
+\item Systèmes  Linux/Windows.
+%
+\item Bureautique  Latex, Microsoft Office.
+%
+\end{itemize}}
+
+\end{frame}
+\subsection{Présentation du sujet}
+
+  \begin{frame}
+   \frametitle{Contexte général: Modélisation, Contrôle et Simulation
+numérique des systèmes complexes}
+
+ \vspace{-1cm}
+{\blue La démarche s'inscrit dans le cadre de la théorie des systèmes}
+
+ \vspace{1cm}
+     \begin{center}%
+  %\stepwise
+  {%
+    \setlength{\unitlength}{1.5\semcm}%
+    \delimitershortfall-1sp% Just for the nested braces
+    \begin{picture}(12,2)
+
+      \step
+        {
+        \put(-1,+2){\framebox(2.5,1){Modélisation}}
+        \put(1.5,2.5){\vector(1,0){2.5}}
+        \put(4,+2){\framebox(2.5,1){Analyse}}
+        \put(6.5,2.5){\vector(1,0){2.5}}
+        \put(9,+2){\framebox(2.5,1){Contrôle}}
+        }
+
+        \step
+        {
+        \put(0.25,2){\vector(0,-1){0.8}}
+        \put(0.8,1){\makebox(0,0){\small Représentation virtuelle }}
+        \put(1,0.5){\makebox(0,0){\small du système réel par :}}
+        \put(0,0){\makebox(0,0){- EDO, EDP}}
+        \put(1.5,-0.5){\makebox(0,0){\small - Equations aux différences }}
+        \put(-0.5,-1){\makebox(0,0){\small - AC }}
+       % \put(1.7,-2.5){\makebox(0,0){\small  }}
+        %\put(1.2,-3){\makebox(0,0){\small - Equations  }}
+        }
+
+        \step
+        {
+        \put(5.25,2){\vector(0,-1){0.8}}
+
+        \put(6,1){\makebox(0,0){\small - Contrôlabilité}}
+
+        \put(5.9,0.5){\makebox(0,0){\small - Observabilité}}
+
+        \put(6.1,0){\makebox(0,0){\small - Stabilisabilité }}
+        \put(5.8,-0.5){\makebox(0,0){\small - Etalabilité }}
+        }
+
+
+
+
+        \step
+        {
+        \put(10.25,2){\vector(0,-1){0.8}}
+        \put(11.5,0.5){\makebox(0,0){\small Définir des actions qui visent  }}
+        \put(10.9,-0.25){\makebox(0,0){\small  à réaliser un objectif}}
+        }
+ \step{
+        %---------------------------------
+        \put(-1,-1.8){\blue\line (0,1){0.5}}
+        \put(14,-1.8){\blue\line (0,1){0.5}}
+        \put(-1,-1.8){\blue\line (1,0){15}}
+        \put(6,-1.8){\blue\vector(0,-1){0.5}}
+        %----------------------------------
+       \put(7,-2.5){\makebox(0,0){\small \red Traitement numérique des modèles }}
+       \put(6.5,-3){\makebox(0,0){\small \red Validation à travers des applications concrètes  }}
+       %----------------------------------------------------------
+       }
+    \end{picture}%
+    }%
+\end{center}%
+ \end{frame}
+ %---------------------------------------------------------------------------
+  \begin{frame}
+   \frametitle{Contexte particulier: étude des processus épidémiologiques par automates cellulaires}
+
+Questions essentielles à considérer :
+
+\begin{enumerate}
+\item{\blue Pourquoi l'épidémiologie ?}
+\item{\blue Quel est l'intérêt de la modélisation en épidémiologie ?}
+\item{\blue Pourquoi les modèles d'automates cellulaires ?}
+\end{enumerate}
+ \end{frame}
+ %---------------------------------------------------------------------------
+  \begin{frame}
+   \frametitle{Contexte particulier: étude des processus épidémiologiques par automates cellulaires}
+
+{\blue Pourquoi l'épidémiologie ?}
+%
+\begin{itemize}
+\item Le fléau des maladies émergentes surprend et inquiète les pouvoirs politiques. Les chiffres  révélés par  l'OMS  sont alarmants.
+    \item Les changements climatiques peuvent encore modifier profondément les équilibres microbiologiques existants.
+    \item  Un système d'aide à la décision est nécessaire et exige le développement d'un ensemble d'outils de gestion de l'information.
+    \end{itemize}
+
+ \end{frame}
+
+ %---------------------------------------------------------------------------
+  \begin{frame}
+   \frametitle{Contexte particulier: étude des processus épidémiologiques par automates cellulaires}
+
+{\blue Quel est l'intérêt de la modélisation en épidémiologie ?}
+\begin{itemize}
+\item L'analyse des données acquises ne peut pas se faire entièrement à partir de techniques statistiques. Une conceptualisation des processus dynamiques en jeu est nécessaire.
+    \item  La démonstration de lois générales, expliquant la diffusion des épidémies.
+    \item L'estimation des paramètres qui ne peuvent être directement mesurés dans une observation ou une expérience.
+    \item La prévision des  cas futurs et l'optimisation de plans expérimentaux.
+    \end{itemize}
+ \end{frame}
+%
+ %---------------------------------------------------------------------------
+  \begin{frame}
+   \frametitle{Contexte particulier: étude des processus épidémiologiques par automates cellulaires}
+
+{\blue Pourquoi les modèles d'automates cellulaires ?}
+\begin{itemize}
+\item Les limites des modèles classiques de type EDO ou EDP
+    \item   L'étude des phénomènes épidémiologiques dans leur contexte spatio-temporel et les possibilités offertes au niveau de la prise en compte des facteurs géographiques environnants.
+    \item  La possibilité de faire émerger une phénoménale complexité à partir de règles d'évolution extrêmement simples.
+    \item La prise en compte des facteurs \emph{héterogénéité et variété d'échelle spatiale et temporelles}.
+    \item La facilité de mise en oeuvre numérique et des possibilités d'implémentation surtout après l'avènement de la plate-forme parallèle.
+ \end{itemize}
+ \end{frame}
+%
+ %---------------------------------------------------------------------------
+  \begin{frame}
+   \frametitle{Objectifs de la thèse}
+
+{\footnotesize     \begin{itemize}
+     \item<1-| alert@+> Comprendre et décrire l'évolution  spatio-temporelle des épidémies dans le but de prédire leur émergence et d'en réduire les risques.
+     \item<2-| alert@+> S'appuyer sur la démarche  "Systèmes" pour laquelle la modélisation  joue un rôle majeur.
+     \item<3-| alert@+> Développer un modèle de calcul puissant qui permet de simuler le phénomène.
+\end{itemize}}
+ \end{frame}
+%
+ %----------------------------------------------------------------------
+\section{Modèles utilisés : Automates Cellulaires.}
+%\subsection{Définitions}
+%
+ \begin{frame}
+   \frametitle{Automates cellulaires}
+   {\footnotesize
+    \begin{itemize}
+
+       \item<1-| alert@+> {\textbf{\blue Généralités:}}
+          \begin{itemize}
+          \normalsize
+          \item  Approche basée sur les notions de : uniformité, localité, espace/temps/état discrets,
+          \item  Ensemble d'automates organisés en réseau,
+          \item Les entrées de chaque automate sont composées des états antérieurs de ses proches voisins,
+          \item Des propriétés émergentes  découlent des interactions entre entités, soumises à des dynamiques microscopiques simples.
+
+          \end{itemize}
+%
+ \item<1-| alert@+>   {\textbf{\blue Historique:}}
+ %
+\begin{itemize}
+\item  J. von. Neumann et S.Ulam 1950 : Modélisation de  la nature auto-reproductive dans les systèmes biologiques
+ \item  J. H. Conway 1970 : Jeu de la Vie
+\item   S. Wolfram 1980 : Étude de la complexité par  AC
+\item   B. Chopard, T. Toffoli 1990 : Modélisation et simulation des systèmes physiques par AC
+\end{itemize}
+
+     \end{itemize}}
+   \end{frame}
+%-------------------------------------------------------------------
+
+%--------------------------------------------------------------
+\frame{
+ \frametitle{\small Définition}
+
+\begin{itemize}
+\item <+-| alert@+>  Un AC est défini par la donnée
+ $\mathcal{A}=(
+\mathcal{L}, \mathcal{S}, N, f )$
+%
+\item <+-| alert@+> L'AC évolue par itération de sa règle globale {\blue $
+ \begin{array}{llll}
+  F: & {\cal S}^{\cal L} & \rightarrow & {\cal S}^{\cal L} \\
+   & s                & \rightarrow & F(s)
+    \end{array}
+$}
+à partir d'une configuration initiale
+ { $s_0$} : 
+%\vspace{-0.5cm}
+ \begin{figure}[!h]
+\includegraphics[width=10cm, height=3cm ]{AC.jpg}
+\end{figure}
+\end{itemize}
+
+}
+%-------------------------------------------------------------------
+
+%-------------------------------------------------------------------
+%\begin{frame}
+%   \frametitle{Avantages d'une modélisation par  AC}
+%%{ \footnotesize
+ %  \begin{itemize}
+ %     \item<1-| alert@+>{\blue Prédire et comprendre un phénomène complexe : physique, biologie, écologie etc.}
+%
+%      \item<2-| alert@+>  {\blue  Simuler efficacement   des systèmes réels mais aussi servir comme solutions numériques des EDP}
+%
+%      \item<3-| alert@+>  {\blue  Reproduire les équations continues de la physique (équation de diffusion,  d'advection, d'onde, de Navier-Stokes)}
+%
+ %  \end{itemize}%}
+ %\end{frame}
+%---------------------------------------------------------------------------
+\section{Application des modèles d'AC en épidémiologie}
+
+%\subsection{Application à la diffusion}
+%--------------------------------------------
+
+ %--------------------------------------------
+   \begin{frame}
+   \frametitle{Tâches à réaliser}
+  \begin{itemize}
+      \item<1-| alert@+>{\blue  Construire des modèles généraux pour décrire l'évolution spatio-temporelle   d'épidémie en identifiant  les processus  biologiques pour en extraire des dynamiques microscopiques. }
+
+       \end{itemize}
+ \end{frame}
+ %---------------------------------------------------------------------------------------------------------
+  %--------------------------------------------
+     \begin{frame}
+   \frametitle{}
+
+{\blue Les premiers modèles mathématiques en épidémiologie basés sur des équations différentielles reposent sur le principe de l'analyse compartimentale qui est une technique  très utilisée en biologie et dont l'élément de base est le compartiment.
+
+      \begin{figure}[!h]
+					\includegraphics[width=8cm, height=4cm ]{modele1.jpg}
+				\end{figure}
+}
+
+Ce qui permet d'écrire un système de $n$ EDO traduisant le bilan instantané de matière où $q_i$ désigne la quantité de matière :
+$$
+\dot{q}_i =I_i - F_{oi} + \displaystyle\sum_{j \neq i} (F_{ij}-F_{ji})
+$$
+\end{frame}
+%---------------------------------------------
+\frame{
+\frametitle{\small{Exemple introductif}}
+
+Nous utiliserons le même principe pour construire un AC probabiliste défini sur un réseau carré où chaque cellule peut être dans l'un des 3 ètats : 
+{\green S - Susceptible}, {\blue I - infecté} ou {\red R - Recouvert} 
+et  interagit avec ses 4 voisins : E/O/N/S selon la règle de transition :
+\vspace{-1.3cm}
+
+%\vspace{-5cm}
+ \begin{columns}
+    \begin{column}{3cm}
+    \begin{slide}
+\centerslidesfalse
+\begin{center}%
+  %\stepwise
+  {%
+    \setlength{\unitlength}{1.5\semcm}%
+    \delimitershortfall-1sp% Just for the nested braces
+    \begin{picture}(14,2)
+
+			{
+
+  \put(1.9,2){\makebox(0,0){\small
+$ \colorbox{green}{$S$}\stackrel{p_s}{\longrightarrow} \colorbox{blue}{$I$\mbox{ }} \mbox{ si } x\geq\theta$}}
+
+
+\put(2,1){\makebox(0,0){\small
+$\colorbox{blue}{$I$\mbox{ }} \stackrel{1-p_i}{\longrightarrow} \colorbox{red}{$R$} \mbox{ si } x<\theta_1$}}
+
+\put(1.1,0){\makebox(0,0){\small
+$\colorbox{red}{$R$}\stackrel{p_r}{\longrightarrow}  \colorbox{green}{$S$}$}}
+
+%\put(0.5,-1){\makebox(0,0){\small
+%avec :  }}%%%
+%
+%\put(1,-2){\makebox(0,0){\small
+%$x=\displaystyle\frac{y_t(c)}{n} $   }}
+% \put(3.,-3){\makebox(0,0){\small
+% $y_t(c) = |\{c' \in N(c) \; | \; s_t(c)=1 \}|$ }}
+
+
+      }																
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \end{picture}%
+    }%
+\end{center}%
+\end{slide}
+
+
+    \end{column}
+    %\vspace{2cm}
+    \mbox{ }
+    \begin{column}{4cm}
+
+  \begin{slide}
+\centerslidesfalse
+\begin{center}%
+  %\stepwise
+  {%
+    \setlength{\unitlength}{1.5\semcm}%
+    \delimitershortfall-1sp% Just for the nested braces
+
+    }%
+\end{center}%
+\end{slide}
+			\begin{figure}[!h]
+			\movie[width=4cm,height=4cm,poster]{}{SIRS_germe_v15.avi}
+			\end{figure}
+    \end{column}
+    \begin{column}{4cm}
+
+  \begin{slide}
+\centerslidesfalse
+\begin{center}%
+  %\stepwise
+  {%
+    \setlength{\unitlength}{1.5\semcm}%
+    \delimitershortfall-1sp% Just for the nested braces
+
+    }%
+\end{center}%
+\end{slide}
+			\begin{figure}[!h]
+%\begin{tabular}{c}
+			\includegraphics[width=4cm]{Nbre_sirs.pdf}\\
+%\includegraphics[width=4cm]{sir1.pdf}
+%\end{tabular}
+			\end{figure}
+    \end{column}
+  \end{columns}
+}
+%--------------------------------------------
+   \begin{frame}
+   \frametitle{Tâches à réaliser}
+  \begin{itemize}
+   \item<1-| alert@+>{\blue   Utiliser des données réelles fournies par le biais d'une collaboration avec le Mexique pour valider le modèle et estimer ses paramètres.}
+       \begin{itemize}
+   \item<2-| alert@+> Les  données concernent la maladie de Chagas dans la péninsule du Yucatan au Mexique. La collecte concerne  4 villages, tous les 15 jours pendant  2-3 ans.
+   \item<3-| alert@+> Les paramètres à estimer sont des probabilités puisqu'il s'agit de modèles stochastiques et la méthode d'estimation utilisée est basée sur l'approche bayésienne.
+        \end{itemize}
+      \end{itemize}
+ \end{frame}
+ %-------------------------------------------- 
+   \begin{frame}
+   \frametitle{Tâches à réaliser}
+  \begin{itemize}
+%
+   \item<1-| alert@+>{\blue     Faire une comparaison avec les modèles macroscopiques EDP ou EDO existant non seulement d'un point de vue numérique (qualitatif) mais aussi en démontrant mathématiquement qu'à partir de ces règles microscopiques, on peut obtenir des équations macroscopiques comme c'est le cas pour l'équation de diffusion ou de  Navier-Stokes.}
+       \end{itemize}
+ \end{frame}
+%-----------------------------------------------------------------------------------------
+
+%---------------------------------------------------------------------------
+\section{Analyse et contrôle en épidémiologie}
+\begin{frame}
+   \frametitle{ }
+
+\begin{itemize}
+      \item<1-| alert@+>  La notion de contrôle en épidémiologie sera définie en utilisant le formalisme "théorie des systèmes" qui consiste à déterminer des actions visant à atteindre un  objectif à moindre coût.
+           \movie[width=5cm,height=4.5cm,poster]{}{Controle_v5.avi}
+      \item<2-| alert@+> Certains concepts d'analyse  régionale, étalabilité, contrôlabilité ou stabilité seront étudiés et appliqués au domaine de l'épidémiologie.
+   \end{itemize}
+\end{frame}
+%-----------------------------------------------------------------------------------------
+
+%--------------------------------------------------------------------------------------
+\section{Perspectives }
+ \begin{frame}
+   \frametitle{Poursuite du travail}
+
+\begin{itemize}
+      \item<1-| alert@+> Développer un simulateur d'AC  pour l'épidémiologie. Le but étant d'offrir à un utilisateur non professionnel,
+un outil efficace pour simuler l'évolution spatiale d'une épidémie. Il permettra de décrire à la fois le phénomène de dispersion ainsi que la croissance démographique locale. 
+           \item<2-| alert@+>  Voir les processus épidémiologiques comme un phénomène de percolation avec un seuil de risque au dessous duquel l'épidémie reste confinée et ne pourra pas se propager. Cela afin d'augmenter les moyens de prévention.  
+   \end{itemize}%}
+
+\begin{figure}[!h]
+				%\includegraphics[width=6cm, height=3cm ]{coquillage.jpg}
+			\end{figure}
+   \end{frame}
+%
+  \section{Plan de la thèse en 3 ans}
+
+  \begin{frame}
+   \frametitle{}
+
+     \begin{figure}[!h]
+				\includegraphics[width=10cm, height=7cm ]{Planning.pdf}
+			\end{figure}
+
+   \end{frame}
+%
+ \begin{frame}
+   \frametitle{Faisabilité et adéquation du sujet}
+
+Le sujet de cette thèse 
+\begin{itemize}
+      \item<1-| alert@+>   concerne essentiellement la modélisation qui fait partie des axes prioritaires du  laboratoire  IMAGES (EA 4218), classé A  par les experts de l'AERES.
+           \item<2-| alert@+>  repose sur des compétences locales et constitue une suite logique de travaux déjà réalisés.
+      \item<3-| alert@+> est parfaitement adapté à mon  profil.
+
+   \end{itemize}%}
+   \end{frame}
+%
+\end{document} 

@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.24pt}
+\select@language {french}
+\beamer@sectionintoc {1}{Introduction }{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{About me}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Pr\'esentation du sujet}{4}{0}{1}
+\beamer@sectionintoc {2}{Mod\`eles utilis\'es : Automates Cellulaires.}{17}{0}{2}
+\beamer@sectionintoc {3}{Application des mod\`eles d'AC en \'epid\'emiologie}{21}{0}{3}
+\beamer@sectionintoc {4}{Analyse et contr\^ole en \'epid\'emiologie}{28}{0}{4}
+\beamer@sectionintoc {5}{Perspectives }{30}{0}{5}
+\beamer@sectionintoc {6}{Plan de la th\`ese en 3 ans}{32}{0}{6}
